@@ -4,14 +4,14 @@ using UnityEngine.EventSystems;
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 
-    private Transform parentAfterDrag;
+    private Transform initialParent;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
 
         Debug.Log("Start dragging");
 
-        parentAfterDrag = transform.parent;
+        initialParent = transform.parent;
         transform.SetParent(transform.root.GetChild(0)); // because root its canvases and first child is the MainCanvas
         transform.SetAsLastSibling();
     }
@@ -22,7 +22,9 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.position = Input.mousePosition;
     }
 
-    public void OnEndDrag(PointerEventData eventData) {
+    public void OnEndDrag(PointerEventData eventData)
+    {
         Debug.Log("End Dragging");
+        transform.SetParent(initialParent);
     } 
 }
