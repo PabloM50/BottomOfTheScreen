@@ -7,6 +7,8 @@ public class CollectableCard : MonoBehaviour
     [SerializeField] private Text _text;
     [SerializeField] private Image _image;
 
+    public Collectable collectable;
+
     public void Initialize(Collectable collectable)
     {
         _image.sprite = collectable.Sprite;
@@ -17,7 +19,9 @@ public class CollectableCard : MonoBehaviour
 
         _text.text = collectable.Name;
 
-        if(collectable.IsCollected()) {
+        this.collectable = collectable;
+        if (collectable.IsCollected())
+        {
             this.Unlock();
         }
     }
