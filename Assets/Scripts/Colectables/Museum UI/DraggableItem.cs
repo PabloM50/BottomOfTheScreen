@@ -7,6 +7,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [SerializeField] private UnityEngine.UI.Image image;
     private Transform Parent;
+    [SerializeField] private CanvasGroup canvasGroup; // cant be done with canvas group
     
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -17,8 +18,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Parent = transform.parent;
         transform.SetParent(transform.root.GetChild(0)); // because root its canvases and first child is the MainCanvas
         transform.SetAsLastSibling();
-        
-        image.raycastTarget = false;
+        canvasGroup.blocksRaycasts = false;
+       
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -30,18 +31,20 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        canvasGroup.blocksRaycasts = true;
         Debug.Log("End Dragging");
 
         transform.SetParent(Parent);
+        Debug.Log(Parent);
         
-        image.raycastTarget = true;
+        
         
     }
 
 
 
 
-    public void SetParent(Transform transform)
+    public void SetNewParent(Transform transform)
     {
         Parent = transform;
     }

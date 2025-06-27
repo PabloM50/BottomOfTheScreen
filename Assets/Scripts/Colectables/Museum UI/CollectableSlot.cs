@@ -17,7 +17,7 @@ public class CollectableSlot : MonoBehaviour, IDropHandler
         //if (collectableCard.collectable.Name == _collectable.Name) {
 
         DraggableItem draggableItem = dropped.GetComponent<DraggableItem>();
-        draggableItem.SetParent(this.transform);
+        draggableItem.SetNewParent(this.transform);
         // }
     }
 

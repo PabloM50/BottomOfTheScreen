@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3311680244399507847}
   - component: {fileID: 3371213980010400394}
   - component: {fileID: 3045462597466974718}
+  - component: {fileID: 6342004905262229290}
   m_Layer: 0
   m_Name: CollectableCard
   m_TagString: Untagged
@@ -93,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 2250602533657496940}
   _image: {fileID: 1382002982657161473}
+  collectable: {fileID: 0}
 --- !u!114 &3045462597466974718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +107,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd674d9fe3cdf842b80edbb1c208a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 3311680244399507847}
+  canvasGroup: {fileID: 6342004905262229290}
+--- !u!225 &6342004905262229290
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039079783215825347}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5835612636751595392
 GameObject:
   m_ObjectHideFlags: 0
